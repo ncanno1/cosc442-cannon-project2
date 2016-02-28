@@ -12,6 +12,7 @@ public class VendingMachineTest {
 	VendingMachine vm2;
 	VendingMachineItem vmi;
 	boolean exceptionThrown;
+	double balance;
 
 	@Before
 	public void setUp() throws Exception {
@@ -23,6 +24,7 @@ public class VendingMachineTest {
 		vm2.addItem(new VendingMachineItem("item1", 1.75), "D");
 		vmi = new VendingMachineItem("item", 2.00);
 		exceptionThrown = false;
+		balance = vm1.getBalance();
 	}
 
 	@After
@@ -250,6 +252,42 @@ public class VendingMachineTest {
 			exceptionThrown = true;
 		}
 		assertTrue(exceptionThrown);
+	}
+	
+	/*
+	 * Testing inserting money
+	 * Should add the value entered
+	 */
+	@Test
+	public void testInsertMoney() {
+		vm1.insertMoney(3.25);
+		assertEquals(balance + 3.25, vm1.getBalance(), .001);
+	}
+	
+	/*
+	 * Testing inserting money more than once
+	 * Should add all the values entered
+	 */
+	@Test
+	public void testInsertMoneyMultiple() {
+		vm1.insertMoney(3.25);
+		vm1.insertMoney(4.0);
+		vm1.insertMoney(2.6);
+		balance = balance + 3.25 + 4.0 + 2.6;
+		assertEquals(balance, vm1.getBalance(), .001);
+	}
+	
+	/*
+	 * Testing inserting negative money
+	 * Should throw an exception
+	 */
+	@Test
+	public void testInsertMoneyNegative() {
+		try {
+			vm1.insertMoney(-1.0);
+		} catch (VendingMachineException e) {
+			exceptionThrown = true;
+		}
 	}
 
 }
