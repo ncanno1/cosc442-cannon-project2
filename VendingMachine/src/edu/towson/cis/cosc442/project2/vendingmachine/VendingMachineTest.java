@@ -308,5 +308,37 @@ public class VendingMachineTest {
 		vm1.insertMoney(6.15);
 		assertEquals(6.15, vm1.getBalance(), .001);
 	}
+	
+	/*
+	 * Testing if the balance updates correctly when making a purchase
+	 * Should return the current balance
+	 */
+	@Test
+	public void testMakePurchaseBalance() {
+		vm2.insertMoney(3.0);
+		vm2.makePurchase("C");
+		balance = balance + 3.0 - 1.5;
+		assertEquals(balance, vm2.getBalance(), .001);
+	}
+	
+	/*
+	 * Testing if the item gets removed when making a purchase
+	 * Should successfully remove the item
+	 */
+	@Test
+	public void testMakePurchaseRemove() {
+		vm2.insertMoney(3.0);
+		vm2.makePurchase("C");
+		assertNull(vm2.getItem("C"));
+	}
+	
+	/*
+	 * Testing if the makePurchase method correctly returns false when balance < item price
+	 * Should not purchase the item (should return false)
+	 */
+	@Test
+	public void testMakePurchaseBalanceLow() {
+		assertFalse(vm2.makePurchase("C"));
+	}
 
 }
