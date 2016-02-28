@@ -141,5 +141,115 @@ public class VendingMachineTest {
 		}
 		assertTrue(exceptionThrown);
 	}
+	
+	/*
+	 * Testing removing an item from slot A
+	 * Should set the slot to null
+	 */
+	@Test
+	public void testRemoveItemA() {
+		vm2.removeItem("A");
+		assertNull(vm2.getItem("A"));
+	}
+	
+	/*
+	 * Testing removing an item from slot B
+	 * Should set the slot to null
+	 */
+	@Test
+	public void testRemoveItemB() {
+		vm2.removeItem("B");
+		assertNull(vm2.getItem("B"));
+	}
+	
+	/*
+	 * Testing removing an item from slot C
+	 * Should set the slot to null
+	 */
+	@Test
+	public void testRemoveItemC() {
+		vm2.removeItem("C");
+		assertNull(vm2.getItem("C"));
+	}
+	
+	/*
+	 * Testing removing an item from slot D
+	 * Should set the slot to null
+	 */
+	@Test
+	public void testRemoveItemD() {
+		vm2.removeItem("D");
+		assertNull(vm2.getItem("D"));
+	}
+	
+	/*
+	 * Testing removing an item that isn't there from slot A
+	 * Should throw and exception
+	 */
+	@Test
+	public void testRemoveItemANull() {
+		try {
+			vm1.removeItem("A");
+		} catch (VendingMachineException e) {
+			exceptionThrown = true;
+		}
+		assertTrue(exceptionThrown);
+	}
+	
+	/*
+	 * Testing removing an item that isn't there from slot B
+	 * Should throw and exception
+	 */
+	@Test
+	public void testRemoveItemBNull() {
+		try {
+			vm1.removeItem("B");
+		} catch (VendingMachineException e) {
+			exceptionThrown = true;
+		}
+		assertTrue(exceptionThrown);
+	}
+	
+	/*
+	 * Testing removing an item that isn't there from slot C
+	 * Should throw and exception
+	 */
+	@Test
+	public void testRemoveItemCNull() {
+		try {
+			vm1.removeItem("C");
+		} catch (VendingMachineException e) {
+			exceptionThrown = true;
+		}
+		assertTrue(exceptionThrown);
+	}
+	
+	/*
+	 * Testing removing an item that isn't there from slot D
+	 * Should throw and exception
+	 */
+	@Test
+	public void testRemoveItemDNull() {
+		try {
+			vm1.removeItem("D");
+		} catch (VendingMachineException e) {
+			exceptionThrown = true;
+		}
+		assertTrue(exceptionThrown);
+	}
+	
+	/*
+	 * Testing removing an item with an invalid code
+	 * Should throw and exception
+	 */
+	@Test
+	public void testRemoveItemInvalidCode() {
+		try {
+			vm1.removeItem("X");
+		} catch (VendingMachineException e) {
+			exceptionThrown = true;
+		}
+		assertTrue(exceptionThrown);
+	}
 
 }
