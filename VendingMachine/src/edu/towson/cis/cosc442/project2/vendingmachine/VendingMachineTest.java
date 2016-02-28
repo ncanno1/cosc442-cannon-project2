@@ -340,5 +340,26 @@ public class VendingMachineTest {
 	public void testMakePurchaseBalanceLow() {
 		assertFalse(vm2.makePurchase("C"));
 	}
+	
+	/*
+	 * Testing if returnChange correctly sets balance to 0
+	 * Should set balance to 0
+	 */
+	@Test
+	public void testReturnChangeBalance() {
+		vm1.insertMoney(3.0);
+		vm1.returnChange();
+		assertEquals(0, vm1.getBalance(), .001);
+	}
+	
+	/*
+	 * Testing if returnChange returns the correct amount of change
+	 * Should return the correct amount of change
+	 */
+	@Test
+	public void testReturnChangeAmount() {
+		vm1.insertMoney(3.0);
+		assertEquals(3.0, vm1.returnChange(), .001);
+	}
 
 }
