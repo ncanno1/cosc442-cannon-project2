@@ -15,10 +15,16 @@ public class VendingMachineTest {
 	public void setUp() throws Exception {
 		vm1 = new VendingMachine();
 		vm2 = new VendingMachine();
+		vm2.addItem(new VendingMachineItem("item1", 1.00), "A");
+		vm2.addItem(new VendingMachineItem("item2", 1.25), "B");
+		vm2.addItem(new VendingMachineItem("item3", 1.50), "C");
+		vm2.addItem(new VendingMachineItem("item1", 1.75), "D");
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		vm1 = null;
+		vm2 = null;
 	}
 
 	@Test
