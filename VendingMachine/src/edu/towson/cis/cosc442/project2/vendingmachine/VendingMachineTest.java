@@ -342,6 +342,20 @@ public class VendingMachineTest {
 	}
 	
 	/*
+	 * Testing making a purchase with invalid code
+	 * Should throw an exception
+	 */
+	@Test
+	public void testMakePurchaseInvalidCode() {
+		try {
+			vm1.makePurchase("X");
+		} catch (VendingMachineException e) {
+			exceptionThrown = true;
+		}
+		assertTrue(exceptionThrown);
+	}
+	
+	/*
 	 * Testing if returnChange correctly sets balance to 0
 	 * Should set balance to 0
 	 */
