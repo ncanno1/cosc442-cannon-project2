@@ -127,5 +127,19 @@ public class VendingMachineTest {
 		}
 		assertTrue(exceptionThrown);
 	}
+	
+	/*
+	 * Testing adding item with an invalid code
+	 * Should throw an exception
+	 */
+	@Test
+	public void testAddItemInvalidCode() {
+		try {
+			vm2.addItem(vmi, "X");
+		} catch (VendingMachineException e) {
+			exceptionThrown = true;
+		}
+		assertTrue(exceptionThrown);
+	}
 
 }
