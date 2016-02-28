@@ -289,5 +289,24 @@ public class VendingMachineTest {
 			exceptionThrown = true;
 		}
 	}
+	
+	/*
+	 * Testing getting the balance
+	 * Should return current balance
+	 */
+	@Test
+	public void testGetBalanceZero() {
+		assertEquals(0, vm1.getBalance(), .001);
+	}
+	
+	/*
+	 * Testing getting the balance after adding money
+	 * Should return current balance
+	 */
+	@Test
+	public void testGetBalanceAdded() {
+		vm1.insertMoney(6.15);
+		assertEquals(6.15, vm1.getBalance(), .001);
+	}
 
 }
